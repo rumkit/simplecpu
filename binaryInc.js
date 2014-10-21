@@ -12,30 +12,30 @@ function update(){
 	ctx.clearRect(0,0,1000,800);
 	ctx.font = "48px Arial";
 	ctx.fillStyle = "#000000";
-	ctx.fillText(""+n,245,50);	
+	ctx.fillText(""+n,255,50);	
 	numDraw(n);
 	ctx.fillStyle = "#CCCCCC";
 	ctx.font = "16px Arial";
 	sizesDraw();
 }
 function sizesDraw(){
-	ctx.fillRect(222,110,20,2);
-	ctx.fillText("bit",219,117);	
-	ctx.fillRect(145,130,98,2);
-	ctx.fillText("nibble",141,137);	
-	ctx.fillRect(31,150,212,2);
-	ctx.fillText("byte",30,157);	
+	ctx.fillRect(230,110,20,2);
+	ctx.fillText("Бит",225,117);	
+	ctx.fillRect(153,130,98,2);
+	ctx.fillText("Ниббл (тетрада)",141,137);	
+	ctx.fillRect(39,150,212,2);
+	ctx.fillText("Байт",36,157);	
 }
 function numDraw(n){
 	var space = 26;
-	(chardraw(n,128,245-(7*space+8),95))?n-=128:n=n;
-	(chardraw(n,64,245-(6*space+8),95))?n-=64:n=n;
-	(chardraw(n,32,245-(5*space+8),95))?n-=32:n=n;
-	(chardraw(n,16,245-(4*space+8),95))?n-=16:n=n;
-	(chardraw(n,8,245-(3*space),95))?n-=8:n=n;
-	(chardraw(n,4,245-(2*space),95))?n-=4:n=n;
-	(chardraw(n,2,245-(1*space),95))?n-=2:n=n;
-	chardraw(n,1,245,95)
+	(chardraw(n,128,255-(7*space+8),95))?n-=128:n=n;
+	(chardraw(n,64,255-(6*space+8),95))?n-=64:n=n;
+	(chardraw(n,32,255-(5*space+8),95))?n-=32:n=n;
+	(chardraw(n,16,255-(4*space+8),95))?n-=16:n=n;
+	(chardraw(n,8,255-(3*space),95))?n-=8:n=n;
+	(chardraw(n,4,255-(2*space),95))?n-=4:n=n;
+	(chardraw(n,2,255-(1*space),95))?n-=2:n=n;
+	chardraw(n,1,255,95)
 	//messy, but we use it to show colors anyways, mine as well
 }
 function chardraw(n,a,x,y){
