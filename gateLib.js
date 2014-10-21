@@ -48,7 +48,7 @@ function Gate(kind,x,y,a,b,out){
 function Lamp(x,y,wire){
 	this.x = x;	
 	this.y = y;	
-	this.r = 0;
+	this.r = 10;
 	this.s = 1;
 	this.wire = wire;//wire index; not actually a wire
 }
@@ -185,21 +185,22 @@ function update(){
 function drawLamp(l){
 	ctx.beginPath();
 	ctx.setTransform(l.s,0,0,l.s,l.x,l.y - 10);	
+	ctx.font = "12px Arial";
 	if(wires[l.wire].value){
-		grd = ctx.createRadialGradient(10,10,0,10,10,20);
+		grd = ctx.createRadialGradient(15,10,1,15,10,27);
 		grd.addColorStop(0,"rgba(100,255,100,1.0)");
 		grd.addColorStop(1,"rgba(100,255,100,0.0)");
 		ctx.fillStyle = grd;
-		ctx.fillRect(-10,-10,40,40);
+		ctx.fillRect(-10,-20,80,60);
 		ctx.fillStyle = "rgba(255,255,255,1.0)";
-		ctx.fillRect(0,0,20,20);
-		ctx.fillStyle = "#88FF88";
-		ctx.fillText("on",0,15);
+		ctx.fillRect(0,0,30,20);
+		ctx.fillStyle = "#88FF88";		
+		ctx.fillText("вкл",4,15);
 	}else{
 		ctx.fillStyle = "#BBBBBB";
-		ctx.fillRect(0,0,20,20);
+		ctx.fillRect(0,0,30,20);
 		ctx.fillStyle = "#888888";
-		ctx.fillText("off",0,15);	
+		ctx.fillText("выкл",2,15);	
 	}	
 	ctx.stroke();
 	ctx.fillStyle = "#000000";
@@ -210,16 +211,17 @@ function drawLever(l){
 	ctx.rotate(l.r*(Math.PI/180));
 	ctx.fillStyle = "#000000";
 	ctx.fillRect(0,0,30,60);
+	ctx.font = "11px Arial";
 	if(wires[l.wire].value){
 		ctx.fillStyle = "#AAFFAA";
 		ctx.fillRect(0,30,30,30);
 		ctx.fillStyle = "#000000";
-		ctx.fillText("on",4,50);	
+		ctx.fillText("вкл",4,50);	
 	}else{
 		ctx.fillStyle = "#FFAAAA";
 		ctx.fillRect(0,0,30,30);
 		ctx.fillStyle = "#000000";
-		ctx.fillText("off",4,20);	
+		ctx.fillText("выкл",2,20);	
 	}
 }
 function drawGate(n){

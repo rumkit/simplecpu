@@ -27,7 +27,7 @@ function setup(){
 	levers[1] = new Lever(8,95,1);
 	gates[0] = new Gate(NAND,100,80,0,1,2);
 
-	lamps[0]= new Lamp(200,80,2);
+	lamps[0]= new Lamp(180,80,2);
 
 	mapWires();
 	update();
