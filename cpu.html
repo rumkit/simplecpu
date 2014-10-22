@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <head>
+<meta charset="utf-8"> 
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <html>
@@ -10,46 +11,52 @@
  <li><a href="about.html">about</a></li>
 </ul><br>
 <div class="content">
-Here is a (relatively) simple CPU for you to play with;<br>
+Вот (в первом приближении) простой ЦПУ, чтобы вы могли поиграться с ним;<br>
 </div>
 <canvas id="cpu" width="550" height="270"></canvas><br>
 <script src="cpu.js"></script>
 <div class="content">
-To modify memory, simply click on the bits while the cpu is off. You can<br>
-scroll through memory as well. To allow the cpu to start executing <br>
-instructions, turn the switch on.<br>
+Чтобы изменять значения в памяти, просто нажимайте на биты пока ЦПУ выключен.
+Вы также можете прокрутить вниз значения памяти. Чтобы запустить ЦПУ и начать выполнение инструкций, включите переключатель.<br>
 <br>
-This cpu has three different instructions:<br>
+У ЦПУ есть три различные инструкции:<br>
 <table>
  <tr>
-  <td><b>Instruction</b></td>
+  <td><b>Инструкция</b></td>
   <td></td>
-  <td><b>Code</b></td>
+  <td><b>Код</b></td>
  <tr>
-  <td><i>add the value at the address held at (Instruction Pointer + 1)<br>
- to the value at the address held at (Instruction Pointer + 2)</i></td>
+  <td><i>Прибавить значение, хранящееся по адресу<br> (Указатель инструкций + 1), к значению по адресу<br> (Указатель инструкций + 2)<br>
+ </i></td>
   <td>&nbsp;&nbsp;</td>
   <td>00000001</td>
  </tr>
  <tr>
-  <td><i>subtract the value at the address held at (Instruction Pointer + 2)<br>
- from the value at the address held at (Instruction Pointer + 1)</i></td>
+  <td><i>Вычесть из значения, хранящегося по адресу<br> (Указатель инструкций + 2), значение по адресу<br> (Указатель инструкций + 1)<br></i></td>
   <td>&nbsp;&nbsp;</td>
   <td>00000010</td>
  </tr>
  <tr>
-  <td><i>move the value at the address held at (Instruction Pointer + 1)<br>
- to the value at the address held at (Instruction Pointer + 2)</i></td>
+  <td><i>Переместить значение, хранящееся по адресу<br> (Указатель инструкций + 1), в ячейку с адресом<br> (Указатель инструкций + 2),</i></td>
   <td>&nbsp;&nbsp;</td>
   <td>00000011</td>
  </tr>
+ <tr>
+  <td><i>Записать в Указатель инструкции значение по адресу (Указатель инструкций + 1)</i></td>
+  <td>&nbsp;&nbsp;</td>
+  <td>00000100</td>
+ </tr>
+ <tr>
+  <td><i>Записать в Указатель инструкции значение по адресу (Указатель инструкций + 1), <br> если значение по адресу (Указатель инструкций + 2) не 0</i></td>
+  <td>&nbsp;&nbsp;</td>
+  <td>00000101</td>
+ </tr>
 </table>
 <br>
-All of the instructions have a size of 3 bytes (operands included).This <br>
-means that we increment the instruction pointer by 3 after each instruction <br>
-is executed.<br>
+Все инструкции имеют размер 3 байта (включая операнды). Это означает, что мы увеличиваем значение указателя на инструкцию на 3 после выполнения каждой инструкции.
 <br>
-The instruction pointer can be accessed by addressing memory location 00000000.
+<br>
+Указатель на инструкцию находится в памяти по адресу 00000000.
 <br>
 <br>
 <div class="center">
@@ -61,15 +68,5 @@ The instruction pointer can be accessed by addressing memory location 00000000.
 <br>
 </div>
 </div>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-55886101-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
 </body>
 </html>

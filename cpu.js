@@ -128,6 +128,17 @@ function tick(){
 		case 3:
 			memory[memory[ip+2]] = memory[memory[ip+1]];
 			break;
+	    case 4:
+			if(memory[memory[ip+1]]>0)
+				memory[0] = memory[memory[ip+1]] - 3;
+			break;
+	  	case 5:
+	  		if(memory[memory[ip+2]]>0){
+	  			if(memory[memory[ip+1]]>0)
+					memory[0] = memory[memory[ip+1]] - 3;
+			}
+	  		break;
+
 		}
 		memory[0]+=3;//instruction pointer++
 		if(memory[0]>255)
